@@ -15,7 +15,7 @@ public class TillManager : MonoBehaviour
     }
     void HandleOrder()
     {
-        Debug.Log(Customer.drinkType);
+       //Debug.Log(Customer.drinkType);
     }
 
 }

@@ -3,15 +3,33 @@ using UnityEngine.Events;
 
 public class Customer : MonoBehaviour
 {
-    public readonly static string drinkType = "coffee"; //static means that it is per class and not per instance of class (object)
+    public string drinkType;
     public UnityEvent raiseOrder;
     [SerializeField] PlayerMovement player;
-    public struct Random Random;
+    //public struct Random Random;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        Debug.Log(Random.Range(1,0));
+        int ran = Random.Range(0,3);
+        if (ran == 0)
+        {
+            drinkType = "coffee";
+        }
+        else if (ran == 1)
+        {
+            drinkType = "coffee with milk";
+        }
+        else if (ran == 2)
+        {
+            ran = Random.Range(1,4);
+            drinkType = "coffee with " + Random.Range(1,4) + " sugars";
+        }
+       else if (ran == 3)
+        {
+            drinkType = "coffee with milk and " + Random.Range(1,4) + " sugars";
+        }
+
     }
    private void OnMouseDown()
    {
