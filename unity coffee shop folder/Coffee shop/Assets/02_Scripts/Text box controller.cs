@@ -3,40 +3,47 @@ using UnityEngine.UI;
 
 public class Textboxcontroller : MonoBehaviour
 {
-    [SerializeField] private string _contents;
-    [SerializeField] private bool _writing = false;
-    [SerializeField] private string _output = "";
+    private string _contents;
+    private bool _writing = false;
     private int i = 0;
     [SerializeField] Text _textBox;
-    [SerializeField] private float _keepTime = 0f;
-
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-
+    private float _keepTime = 0f;
     // Update is called once per frame
     void Update()
     {
-        if (_writing)
+        if (_writing) //sees if it should be writing
         {
-            if (_keepTime > 0.2f)
+            if (_keepTime > 0.05f) //determins how long to wait between characters
             {
-                _textBox.text = _textBox.text + _contents[i];
-                i++;
-                _keepTime = 0;
+                if (_contents[i] == " "[0])
+                {
+                    _textBox.text = _textBox.text + _contents[i];
+                    i++;    
+                }
+                _textBox.text = _textBox.text + _contents[i]; //updates the text box with the new contents
+                i++; //increments the character to be added
+                _keepTime = 0; //resets the timer
             }
             else
             {
-                _keepTime += Time.deltaTime;
+                _keepTime += Time.deltaTime; //keeps time between characters added
             }
-            if (_textBox.text == _contents)
+            if (_textBox.text == _contents) //checks if all the text is now displayed
             {
-                _writing = false;
+                _writing = false; //stops the program from trying to keep writng
             }
+        }
+        if (Input.GetMouseButtonDown(0))
+        {
+            Debug.Log("me and my girls");
         }
     }
 
-    void write(string text)
+    public void write(string text)
     {
-        _contents = text;
-        _writing = true; 
+        _contents = text; // sets the text to be writen
+        _writing = true; //tells the program to start writing
+        i = 0;
+        _textBox.text = "";
     }
 }

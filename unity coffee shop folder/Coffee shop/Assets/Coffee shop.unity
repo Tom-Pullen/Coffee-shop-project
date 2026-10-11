@@ -338,11 +338,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ddc37a4a79cbd3b4ea2eb8a8dd455834, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Textboxcontroller
-  _contents: Hello
-  _writing: 0
-  _output: 
   _textBox: {fileID: 884829267}
-  _keepTime: 0
 --- !u!1 &153581907
 GameObject:
   m_ObjectHideFlags: 0
@@ -1248,6 +1244,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Cofee
   player: {fileID: 1642666470}
   self: {fileID: 1080475017}
+  contents: []
 --- !u!1 &1267171750
 GameObject:
   m_ObjectHideFlags: 0
@@ -1366,7 +1363,13 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   player: {fileID: 1642666470}
-  _textBox: {fileID: 884829267}
+  _textBox: {fileID: 121889281}
+  menue:
+  - 'espresso '
+  - americano
+  - cappucino
+  - black coffee
+  - flat white
 --- !u!1001 &1510501546
 PrefabInstance:
   m_ObjectHideFlags: 0
