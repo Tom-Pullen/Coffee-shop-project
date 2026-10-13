@@ -4,6 +4,7 @@ using UnityEngine.UI;
 
 public class Customer : MonoBehaviour
 {
+    public enum Menue {escpresso, americano, capachino, blackCoffee, flatWhite} 
     public string drinkType;
     public UnityEvent raiseOrder;
     [SerializeField] PlayerMovement player;

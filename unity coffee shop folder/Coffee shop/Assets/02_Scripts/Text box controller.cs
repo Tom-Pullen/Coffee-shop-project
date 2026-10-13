@@ -28,7 +28,7 @@ public class Textboxcontroller : MonoBehaviour
         }
         if (Input.GetKeyDown("e"))
         {
-            _textBox.enable
+            //_textBox.enable
         }
     }
     public void Write (string iWannaWriteWithSomebody)
