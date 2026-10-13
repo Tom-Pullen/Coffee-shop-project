@@ -14,7 +14,7 @@ public class Customer : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        drinkType = menue[Random.Range(0,menue.Length)]; //choses a rando number between 0 and 3
+        drinkType = menue[Random.Range(0,menue.Length)]; //choses a random number between 0 and 3
         //order plane coffee
     }
    private void OnMouseDown()
@@ -26,13 +26,13 @@ public class Customer : MonoBehaviour
         //Debug.Log("She met her on the tiltawhirl");
         if (player.GetHolding() != drinkType)
         {
-            _textBox.write("Can I get a " + type);
+            _textBox.Write("Can I get a " + type);
             //Debug.Log("Can I get a " + type);
         }
         else
         {
             player.Drop();
-            _textBox.write("Thanks");
+            _textBox.Write("Thanks");
             //Debug.Log("Thanks");
         }
         raiseOrder?.Invoke();

@@ -25,7 +25,6 @@ public class Cofee : MonoBehaviour
             player.Drop(); //removes sugar from the players hand
        }
        
-     if ()
        //if contains ingridents x y z, set coffee type to capachino, escpresso, excetera
 
 
