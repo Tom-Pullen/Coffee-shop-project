@@ -151,7 +151,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0a946cda9d2fa943b526f20a92faf7f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Pickup
-  _item: sugar
+  _item: 5
   player: {fileID: 1642666470}
 --- !u!136 &48495922
 CapsuleCollider:
@@ -318,12 +318,11 @@ Transform:
   m_GameObject: {fileID: 121889279}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 974.0134, y: -221.10175, z: 863.9227}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 1413.5, y: -448.96, z: 1239.6}
+  m_LocalScale: {x: 1.4348416, y: 1.4348416, z: 1.4348416}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1053212442}
-  - {fileID: 884829266}
   m_Father: {fileID: 153581911}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &121889281
@@ -339,6 +338,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Textboxcontroller
   _textBox: {fileID: 884829267}
+  box: {fileID: 1053212441}
+  to_be_writen: []
 --- !u!1 &153581907
 GameObject:
   m_ObjectHideFlags: 0
@@ -474,7 +475,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0a946cda9d2fa943b526f20a92faf7f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Pickup
-  _item: milk
+  _item: 6
   player: {fileID: 1642666470}
 --- !u!136 &222709862
 CapsuleCollider:
@@ -972,15 +973,15 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 884829265}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -863.9227}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 121889280}
+  m_Father: {fileID: 1053212442}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -974.75305, y: 26.0155}
+  m_AnchoredPosition: {x: 10.894104, y: 2.7577934}
   m_SizeDelta: {x: 1310.9983, y: 185.1575}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &884829267
@@ -1042,7 +1043,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1053212442
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1054,7 +1055,8 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: -863.9227}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 884829266}
   m_Father: {fileID: 121889280}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -1228,7 +1230,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0a946cda9d2fa943b526f20a92faf7f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Pickup
-  _item: coffee
+  _item: 7
   player: {fileID: 1642666470}
 --- !u!114 &1080475018
 MonoBehaviour:
@@ -1358,18 +1360,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9fbe276822e223b45b32a0c506f6448f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Customer
-  drinkType: 
+  drinkType: 0
   raiseOrder:
     m_PersistentCalls:
       m_Calls: []
   player: {fileID: 1642666470}
   _textBox: {fileID: 121889281}
-  menue:
-  - 'espresso '
-  - americano
-  - cappucino
-  - black coffee
-  - flat white
 --- !u!1001 &1510501546
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1499,7 +1495,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c2d457b339ba594284d9d675d13b3d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMovement
-  controller: {fileID: 1642666471}
+  _customer: {fileID: 1313998735}
 --- !u!143 &1642666471
 CharacterController:
   m_ObjectHideFlags: 0

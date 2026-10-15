@@ -3,19 +3,19 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     [Header("Movement Controlls")]
-    [SerializeField]
+    [SerializeField] Customer _customer;
     private CharacterController controller;
-    private string holding = "";
+    private items holding = items.None;
     //movement conttrolls
     void Start()
     {
-        controller.height = 5f;
-        controller.radius = 5f;
-        controller.center = new Vector3(5f, 5f, 5f);
-        controller.minMoveDistance = 5f;
-        controller.skinWidth = 5f;
-        controller.stepOffset = 5f;
-        controller.slopeLimit = 5f;
+        //controller.height = 5f;
+        // controller.radius = 5f;
+        // controller.center = new Vector3(5f, 5f, 5f);
+        // controller.minMoveDistance = 5f;
+        // controller.skinWidth = 5f;
+        // controller.stepOffset = 5f;
+        // controller.slopeLimit = 5f;
     }
 
     // Update is called once per frame
@@ -27,14 +27,14 @@ public class PlayerMovement : MonoBehaviour
         
     }
 
-    public string GetHolding()
+    public items GetHolding()
     {
         return holding;
     }
 
-    public void PickUp(string item)
+    public void PickUp(items item)
     {
-        if (holding == "")
+        if (holding == items.None)
         {
             holding = item;
             Debug.Log("You picked up " + item);
@@ -47,6 +47,6 @@ public class PlayerMovement : MonoBehaviour
     public void Drop()
     {
         Debug.Log(holding + " was removed from your inventory");
-        holding = "";
+        holding = items.None;
     }
 }
