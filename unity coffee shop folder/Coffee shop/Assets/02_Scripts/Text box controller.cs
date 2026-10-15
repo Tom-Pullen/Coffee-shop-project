@@ -17,7 +17,7 @@ public class Textboxcontroller : MonoBehaviour
     {
         if (to_be_writen.Count > pointer && !_printing)
         {
-            if (pointer != 0)
+            if (!(_textBox.text == ""))
             {
                 if (Input.GetKeyDown("e"))
                 {
@@ -33,6 +33,7 @@ public class Textboxcontroller : MonoBehaviour
         }
         if (Input.GetKeyDown("e") && !_printing)
         {
+            _textBox.text = "";
             box.SetActive(false);
         }
     }
@@ -44,6 +45,10 @@ public class Textboxcontroller : MonoBehaviour
         _textBox.text = "";
         foreach (char letter in comeAndPrintMe)
         {
+            if ((letter + "").ToUpper() == (letter + "") && _textBox.text != "")
+            {
+                _textBox.text = _textBox.text + " ";    
+            }
             _textBox.text = _textBox.text + letter;
             if (letter != " "[0])
             {
