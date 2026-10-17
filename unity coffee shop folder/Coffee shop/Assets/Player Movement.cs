@@ -5,7 +5,7 @@ public class PlayerMovement : MonoBehaviour
     [Header("Movement Controlls")]
     [SerializeField] Customer _customer;
     private CharacterController controller;
-    private items holding = items.None;
+    private GameObject holding;
     //movement conttrolls
     void Start()
     {
@@ -27,12 +27,12 @@ public class PlayerMovement : MonoBehaviour
         
     }
 
-    public items GetHolding()
+    public GameObject GetHolding()
     {
         return holding;
     }
 
-    public void PickUp(items item)
+    public void PickUp(GameObject item)
     {
         if (holding == items.None)
         {
