@@ -12,7 +12,7 @@ public class Cofee : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     private void OnMouseDown() //detects when the coffee is clicked
     {
-       if (player.GetHolding() == items.milk) //see's if the player is holding milk
+       if (player.GetHolding().Tag == "Milk") //see's if the player is holding milk
        {
             Debug.Log("Milk added to coffee"); //lets the player no they added milk to the coffee
             contents.Add("Milk");
