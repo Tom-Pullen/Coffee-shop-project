@@ -59,12 +59,12 @@ public class Customer : MonoBehaviour
             new_customer = false;
         }
         //Debug.Log("She met her on the tiltawhirl");
-        if (player.GetHolding() != type)
+        //if (player.GetHolding() != type)
         {
             _textBox.Write("Can I get a " + type);
             //Debug.Log("Can I get a " + type);
         }
-        else
+        //else
         {
             player.Drop();
             _textBox.Write("Thanks");

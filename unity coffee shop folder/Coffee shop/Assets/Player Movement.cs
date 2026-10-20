@@ -34,12 +34,12 @@ public class PlayerMovement : MonoBehaviour
 
     public void PickUp(GameObject item)
     {
-        if (holding == items.None)
+        //if (holding == items.None)
         {
             holding = item;
             Debug.Log("You picked up " + item);
         }
-        else
+        //else
         {
             Debug.Log("You are already holding something");
         }
@@ -47,6 +47,6 @@ public class PlayerMovement : MonoBehaviour
     public void Drop()
     {
         Debug.Log(holding + " was removed from your inventory");
-        holding = items.None;
+        //holding = items.None;
     }
 }

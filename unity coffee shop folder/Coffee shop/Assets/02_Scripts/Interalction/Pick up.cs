@@ -9,7 +9,7 @@ public class Pickup : MonoBehaviour
     private void OnMouseDown()
     {
         //GetComponent<IClickable>
-        player.PickUp(_item);
+        //player.PickUp(_item);
     }
 
     public void SetItem(items newItem)
