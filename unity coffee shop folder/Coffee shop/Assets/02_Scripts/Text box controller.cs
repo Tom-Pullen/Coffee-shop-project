@@ -10,6 +10,7 @@ public class Textboxcontroller : MonoBehaviour
     private bool _printing;
     private float _time = 0.05f;
     [SerializeField] List<string> to_be_writen = new List<string>();
+    [SerializeField] List<Color> new_color = new List<Color>();
     int pointer = 0;
 
     // Update is called once per frame
@@ -21,13 +22,13 @@ public class Textboxcontroller : MonoBehaviour
             {
                 if (Input.GetKeyDown("e"))
                 {
-                    StartCoroutine(Output(to_be_writen[pointer]));
+                    StartCoroutine(Output(to_be_writen[pointer], new_color[pointer]));
                     pointer++;
                 }
             }
             else
             {
-                StartCoroutine(Output(to_be_writen[pointer]));
+                StartCoroutine(Output(to_be_writen[pointer], new_color[pointer]));
                 pointer++;
             }
         }
@@ -38,10 +39,11 @@ public class Textboxcontroller : MonoBehaviour
         }
     }
 
-    public IEnumerator Output(string comeAndPrintMe)
+    public IEnumerator Output(string comeAndPrintMe, Color c)
     {
         box.SetActive(true);
         _printing = true;
+        _textBox.color = c;
         _textBox.text = "";
         foreach (char letter in comeAndPrintMe)
         {
@@ -62,8 +64,9 @@ public class Textboxcontroller : MonoBehaviour
         }
         _printing = false;
     }
-    public void Write (string iWannaWriteWithSomebody)
+    public void Write (string iWannaWriteWithSomebody, Color collor)
     {
         to_be_writen.Add(iWannaWriteWithSomebody);
+        new_color.Add(collor);
     }
 }

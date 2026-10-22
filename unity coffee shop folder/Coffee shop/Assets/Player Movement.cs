@@ -5,10 +5,19 @@ public class PlayerMovement : MonoBehaviour
     [Header("Movement Controlls")]
     [SerializeField] Customer _customer;
     private CharacterController controller;
-    private GameObject holding;
-    //movement conttrolls
+    public GameObject holding = null;
+    [SerializeField] float xSens;
+    [SerializeField] float ySens;
+    
+    [SerializeField] Transform orientation;
+
+     float xRotation;
+     float yRotation;
+
     void Start()
     {
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
         //controller.height = 5f;
         // controller.radius = 5f;
         // controller.center = new Vector3(5f, 5f, 5f);
@@ -21,12 +30,37 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //Debug.LogError("Hollywood infected your brain");
-        //Debug.LogWarning("You wanted kissing in the rain");
+        // Get mouse input
+        float mouseX = Input.GetAxis("Mouse X") * xSens * Time.deltaTime;
+        float mouseY = Input.GetAxis("Mouse Y") * ySens * Time.deltaTime;
+
+        yRotation += mouseX;
         
+        // Calculate the new x rotation and clamp it
+        xRotation -= mouseY;
+        xRotation = Mathf.Clamp(xRotation, -90f, 90f);
         
+        // Apply rotation to the camera
+        orientation.rotation = Quaternion.Euler(xRotation, yRotation, 0);
+        transform.rotation = Quaternion.Euler(0, yRotation, 0);
+        if (Input.GetKeyDown("f"))
+        {
+            Drop();
+        }
+    
     }
 
+    public bool hand_empty()
+    {
+        if (holding == null)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
     public GameObject GetHolding()
     {
         return holding;
@@ -47,6 +81,6 @@ public class PlayerMovement : MonoBehaviour
     public void Drop()
     {
         Debug.Log(holding + " was removed from your inventory");
-        //holding = items.None;
+        holding =  null;
     }
 }
