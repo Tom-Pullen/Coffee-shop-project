@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
 
-public enum menue {escpresso, americano, capachino, blackCoffee, flatWhite, cup, None}
+public enum menue {escpresso, americano, capachino, blackCoffee, flatWhite, latte, mocha, macchiato, cup, None}
 public enum _ingridients {sugar, milk, escpresso}
 
 public class Customer : MonoBehaviour
@@ -14,11 +14,10 @@ public class Customer : MonoBehaviour
     [SerializeField] Textboxcontroller _textBox;
     bool new_customer = true;
     //public struct Random Random;
-
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        int random = Random.Range(0, 4);
+        int random = Random.Range(0, 8);
         switch (random)
         {
             case 0:
@@ -44,6 +43,21 @@ public class Customer : MonoBehaviour
             case 4:
             {
                 drinkType = menue.flatWhite;
+                break;
+            }
+            case 5:
+            {
+                drinkType = menue.latte;
+                break;
+            }
+            case 6:
+            {
+                drinkType = menue.mocha;
+                break;
+            }
+            case 7:
+            {
+                drinkType = menue.macchiato;
                 break;
             }
         }
@@ -91,7 +105,7 @@ public class Customer : MonoBehaviour
                 }
             }
         }
-        else if (player.GetHolding().tag != "" + type)
+        else if (player.GetHolding()._item != type)
         {
             switch (type)
             {

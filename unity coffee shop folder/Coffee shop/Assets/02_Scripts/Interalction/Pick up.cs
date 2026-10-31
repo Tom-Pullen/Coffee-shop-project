@@ -3,9 +3,12 @@ using UnityEngine;
 public class Pickup : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    [SerializeField] menue _item = menue.cup;
+    public menue _item = menue.cup;
     [SerializeField] PlayerMovement player;
-    [SerializeField] GameObject self;
+    [SerializeField] Pickup self;
+    [SerializeField] Cofee coffee;
+    [SerializeField] GameObject body;
+    [SerializeField] GameObject coffeevisable;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     private void OnMouseDown()
     {
@@ -13,13 +16,29 @@ public class Pickup : MonoBehaviour
         player.PickUp(self);
     }
 
+    public void showCoffee()
+    {
+        coffeevisable.SetActive(true);
+    }
+
     public void SetItem(menue newItem)
     {
         _item = newItem;
     }
     // Update is called once per frame
-    void Update()
+    public void add_ingrideient(_ingridients addition)
     {
-        
+        coffee.contents.Add(addition);
+    }
+    public void pickUp()
+    {
+        Debug.Log("Hallo");
+        body.SetActive(false);
+    }
+
+    public void place(Vector3 pos)
+    {
+        body.transform.position = pos;
+        body.SetActive(true);
     }
 }

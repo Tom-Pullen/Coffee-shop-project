@@ -5,7 +5,9 @@ public class PlayerMovement : MonoBehaviour
     [Header("Movement Controlls")]
     [SerializeField] Customer _customer;
     private CharacterController controller;
-    public GameObject holding = null;
+    public Pickup holding = null;
+    
+    [Header("Camera Move")]
     [SerializeField] float xSens;
     [SerializeField] float ySens;
     
@@ -18,19 +20,11 @@ public class PlayerMovement : MonoBehaviour
     {
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
-        //controller.height = 5f;
-        // controller.radius = 5f;
-        // controller.center = new Vector3(5f, 5f, 5f);
-        // controller.minMoveDistance = 5f;
-        // controller.skinWidth = 5f;
-        // controller.stepOffset = 5f;
-        // controller.slopeLimit = 5f;
     }
 
     // Update is called once per frame
     void Update()
     {
-        // Get mouse input
         float mouseX = Input.GetAxis("Mouse X") * xSens * Time.deltaTime;
         float mouseY = Input.GetAxis("Mouse Y") * ySens * Time.deltaTime;
 
@@ -47,7 +41,6 @@ public class PlayerMovement : MonoBehaviour
         {
             Drop();
         }
-    
     }
 
     public bool hand_empty()
@@ -61,21 +54,17 @@ public class PlayerMovement : MonoBehaviour
             return false;
         }
     }
-    public GameObject GetHolding()
+    public Pickup GetHolding()
     {
         return holding;
     }
 
-    public void PickUp(GameObject item)
+    public void PickUp(Pickup item)
     {
-        //if (holding == items.None)
+        if (hand_empty())
         {
             holding = item;
-            Debug.Log("You picked up " + item);
-        }
-        //else
-        {
-            Debug.Log("You are already holding something");
+            item.pickUp();
         }
     }
     public void Drop()
