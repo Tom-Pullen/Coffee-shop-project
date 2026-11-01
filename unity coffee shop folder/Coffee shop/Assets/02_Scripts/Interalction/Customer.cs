@@ -103,6 +103,21 @@ public class Customer : MonoBehaviour
                     _textBox.Write("Can I get a flat white", new Color(255, 120, 0, 230));
                     break;
                 }
+                case menue.latte:
+                {
+                    _textBox.Write("Can I get a latte", new Color(255, 120, 0, 230));
+                    break;
+                }
+                case menue.mocha:
+                {
+                    _textBox.Write("Can I get a mocha", new Color(255, 120, 0, 230));
+                    break;
+                }
+                case menue.macchiato:
+                {
+                    _textBox.Write("Can I get a macchiato", new Color(255, 120, 0, 230));
+                    break;
+                }
             }
         }
         else if (player.GetHolding()._item != type)
@@ -111,27 +126,27 @@ public class Customer : MonoBehaviour
             {
                 case menue.escpresso:
                 {
-                    _textBox.Write("Can I get an espresso", new Color(255, 120, 0, 230));
+                    _textBox.Write("I asked for an espresso", new Color(255, 120, 0, 230));
                     break;
                 }
                 case menue.americano:
                 {
-                    _textBox.Write("Can I get an americano", new Color(255, 120, 0, 230));
+                    _textBox.Write("I asked for an americano", new Color(255, 120, 0, 230));
                     break;
                 }
                 case menue.capachino:
                 {
-                    _textBox.Write("Can I get a cappuccino", new Color(255, 120, 0, 230));
+                    _textBox.Write("I asked for a cappuccino", new Color(255, 120, 0, 230));
                     break;
                 }
                 case menue.blackCoffee:
                 {
-                    _textBox.Write("Can I get a black coffee", new Color(255, 120, 0, 230));
+                    _textBox.Write("I asked for a black coffee", new Color(255, 120, 0, 230));
                     break;
                 }
                 case menue.flatWhite:
                 {
-                    _textBox.Write("Can I get a flat white", new Color(255, 120, 0, 230));
+                    _textBox.Write("I asked for a flat white", new Color(255, 120, 0, 230));
                     break;
                 }
             }           

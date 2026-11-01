@@ -7,8 +7,11 @@ public class leaver : MonoBehaviour
     {
         if (machine.in_space != null)
         {
-            Debug.Log("Pushing");
-            machine.push();
+            if (machine.in_space._item == menue.cup)
+            {
+                //Debug.Log("Pushing");
+                machine.push();
+            }
         }
     }
 }

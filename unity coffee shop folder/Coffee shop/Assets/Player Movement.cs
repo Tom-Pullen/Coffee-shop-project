@@ -69,6 +69,7 @@ public class PlayerMovement : MonoBehaviour
     }
     public void Drop()
     {
+        holding.UI_element.SetActive(false);
         Debug.Log(holding + " was removed from your inventory");
         holding =  null;
     }

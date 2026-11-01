@@ -1,4 +1,6 @@
 using UnityEngine;
+using System.Collections;
+using System.Collections.Generic;
 
 public class CoffeMachine : MonoBehaviour
 {
@@ -8,6 +10,8 @@ public class CoffeMachine : MonoBehaviour
     [SerializeField] Switch switch_2;
     [SerializeField] Switch switch_3;
     [SerializeField] Transform tp;
+    [SerializeField] Animator vsAnitmation;
+    [SerializeField] AudioSource bloop;
     private string code = "falsefalsefalse";
     menue typeBeingmade = menue.blackCoffee;
 
@@ -82,7 +86,17 @@ public class CoffeMachine : MonoBehaviour
 
         }
         Debug.Log(typeBeingmade);
-        in_space.showCoffee();
-        in_space._item = typeBeingmade;
+        StartCoroutine(MakeCoffee());
+
     }
+    IEnumerator MakeCoffee()
+    {
+        in_space.enabled = false; //disables the ability to pick up the coffee
+        vsAnitmation.SetTrigger("go"); //starts the animation
+        bloop.Play();//plays the sound effect
+        yield return new WaitForSeconds(1.2f); //waits until the animation is complete
+        in_space.showCoffee(); //shows the coffee texture
+        in_space._item = typeBeingmade;
+        in_space.enabled = true; //makes it possible to pick up the coffee again 
+    } 
 }
